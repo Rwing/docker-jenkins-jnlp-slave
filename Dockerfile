@@ -4,8 +4,7 @@ MAINTAINER Rwing <@rwing>
 ENV DOCKER_VERSION=19.03.0 KUBECTL_VERSION=v1.18.5
 
 USER root
-
-RUN curl -fsSLO https://download.docker.com/linux/static/stable/x86_64/docker-19.03.0.tgz \
+RUN curl -fsSLO https://download.docker.com/linux/static/stable/x86_64/docker-${DOCKER_VERSION}.tgz \
 		&& tar --strip-components=1 -xvzf docker-${DOCKER_VERSION}.tgz -C /usr/local/bin \
 		&& chmod -R +x /usr/local/bin/docker
 
@@ -27,4 +26,3 @@ RUN curl -L https://storage.googleapis.com/kubernetes-release/release/${KUBECTL_
 #     && rm /tmp/docker-${DOCKER_VERSION}.tgz \
 #     && chmod -R +x /tmp/docker/ \
 #     && mv /tmp/docker/* /usr/bin/
-https://download.docker.com/linux/static/stable/x86_64/docker-19.03.0.tgz
